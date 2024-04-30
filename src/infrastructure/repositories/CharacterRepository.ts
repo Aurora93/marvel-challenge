@@ -1,9 +1,10 @@
-import { API_GET_CHARACTER } from "./urls";
+import { API_GET_CHARACTER, MARVEL_API_KEY } from "./urls";
 import Api from "../../domain/Api";
 import restApi from "../RestApi";
 import ICharacterRepository from "../../domain/ICharacterRepository";
 import BaseRepository from "./BaseRepository";
 import { SearchFilters } from "../../domain/SearchFilters";
+import { characterDTOMapper } from "../../application/characterDTOMapper";
 
 class CharacterRepository
   extends BaseRepository
@@ -33,14 +34,18 @@ class CharacterRepository
       this._getCharacterEndpoint
     }/${characterId}${this._createAuthParams()}`;
 
-    return this._api.get(url).then((res) => res); // TODO MAppper
+    return this._api.get(url).then((res) => res.data.results[0]); // TODO MAppper
   }
 
   getCharacters({ queryParams }: { queryParams: SearchFilters }) {
-    const url = `${this._getCharactersEndpoint}${this._createQueryParams({
-      queryParams,
-    })}${this._createAuthParams()}`;
-    return this._api.get(url).then((res) => res); // TODO MAppper
+    const queryParamsString = this._createQueryParams(queryParams);
+    const authParamsString = this._createAuthParams();
+
+    const url = `${this._getCharactersEndpoint}${authParamsString}${queryParamsString}`;
+
+    return this._api
+      .get(url)
+      .then((res) => res.data.results && characterDTOMapper(res.data.results));
   }
 }
 

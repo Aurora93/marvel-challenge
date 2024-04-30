@@ -1,7 +1,10 @@
 import md5 from "crypto-js/md5";
 
 abstract class BaseRepository {
-  protected _createQueryParams(params: { [key: string]: any }) {
+  protected _createQueryParams(
+    params: { [key: string]: any },
+    isAuthParams?: boolean
+  ) {
     if (!params) {
       return "";
     }
@@ -25,7 +28,10 @@ abstract class BaseRepository {
       .filter((param) => param !== "")
       .join("&");
 
-    return queryParams ? `?${queryParams}` : "";
+    if (isAuthParams) {
+      return queryParams ? `?${queryParams}` : "";
+    }
+    return queryParams ? `&${queryParams}` : "";
   }
 
   protected _createAuthParams() {
@@ -36,11 +42,14 @@ abstract class BaseRepository {
 
     const hash = md5(ts + privateKey + publicKey);
 
-    return this._createQueryParams({
-      apikey: publicKey,
-      ts,
-      hash,
-    });
+    return this._createQueryParams(
+      {
+        apikey: publicKey,
+        ts,
+        hash,
+      },
+      true
+    );
   }
 }
 
