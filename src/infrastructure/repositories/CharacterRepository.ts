@@ -1,4 +1,4 @@
-import { API_GET_CHARACTER, MARVEL_API_KEY } from "./urls";
+import { API_GET_CHARACTER } from "./urls";
 import Api from "../../domain/Api";
 import restApi from "../RestApi";
 import ICharacterRepository from "../../domain/ICharacterRepository";
