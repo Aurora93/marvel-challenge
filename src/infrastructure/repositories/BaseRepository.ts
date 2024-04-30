@@ -1,3 +1,5 @@
+import md5 from "crypto-js/md5";
+
 abstract class BaseRepository {
   protected _createQueryParams(params: { [key: string]: any }) {
     if (!params) {
@@ -24,6 +26,21 @@ abstract class BaseRepository {
       .join("&");
 
     return queryParams ? `?${queryParams}` : "";
+  }
+
+  protected _createAuthParams() {
+    const ts = new Date().getTime();
+
+    const privateKey = import.meta.env.VITE_MARVEL_API_PRIVATE_KEY;
+    const publicKey = import.meta.env.VITE_MARVEL_API_PUBLIC_KEY;
+
+    const hash = md5(ts + privateKey + publicKey);
+
+    return this._createQueryParams({
+      apikey: publicKey,
+      ts,
+      hash,
+    });
   }
 }
 

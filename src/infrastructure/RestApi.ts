@@ -93,19 +93,6 @@ class RestApi implements Api {
         throw new Error(err);
       });
   }
-
-  getBlob(url: string) {
-    return fetch(url)
-      .then((res) => {
-        if (res.ok) {
-          return res.blob();
-        }
-        throw new Error(`${res.status}`);
-      })
-      .catch((err) => {
-        throw new Error(err);
-      });
-  }
 }
 
 export default new RestApi();
