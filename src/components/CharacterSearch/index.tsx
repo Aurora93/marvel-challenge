@@ -3,10 +3,13 @@ import CharacterList from "../CharacterList";
 import SearchBar from "../SearchBar";
 import getCharacters from "./../../application/GetCharactersUseCase";
 import { CharacterDTO } from "../../application/characterDTOMapper";
-import { TextWrapper } from "./styles";
+import { TextWrapper, SpinnerWrapper } from "./styles";
+import SpinnerLoadIcon from "../../assets/icons/spinnerLoadIcon.svg?react";
 
 const CharacterSearch = () => {
+  const [loading, setLoading] = useState(true);
   const [characters, setCharacters] = useState<CharacterDTO[] | null>(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     getCharacterHandler();
@@ -17,21 +20,37 @@ const CharacterSearch = () => {
   };
 
   const getCharacterHandler = async (term?: string) => {
-    const queryParams = term // TODO refactor and test
+    setLoading(true);
+
+    const queryParams = term
       ? term.length === 1
         ? { nameStartsWith: term }
         : { name: term }
       : {};
 
-    const characters = await getCharacters.execute({ queryParams });
-    setCharacters(characters);
+    try {
+      const characters = await getCharacters.execute({ queryParams });
+      setCharacters(characters);
+    } catch (error) {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div>
       <SearchBar onSearch={handleSearch} placeholder="Name of character" />
-      {characters && <CharacterList characters={characters} />}
-      {characters?.length === 0 && <TextWrapper>Sorry, no results</TextWrapper>}
+      {loading ? (
+        <SpinnerWrapper>
+          <SpinnerLoadIcon />
+        </SpinnerWrapper>
+      ) : characters && characters.length > 0 ? (
+        <CharacterList characters={characters} />
+      ) : (
+        <TextWrapper>No search results</TextWrapper>
+      )}
+      {error && <TextWrapper>Something went wrong</TextWrapper>}
     </div>
   );
 };
