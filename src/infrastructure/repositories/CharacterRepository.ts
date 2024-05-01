@@ -38,7 +38,10 @@ class CharacterRepository
   }
 
   getCharacters({ queryParams }: { queryParams: SearchFilters }) {
-    const queryParamsString = this._createQueryParams(queryParams);
+    const queryParamsString = this._createQueryParams({
+      ...queryParams,
+      limit: 6,
+    });
     const authParamsString = this._createAuthParams();
 
     const url = `${this._getCharactersEndpoint}${authParamsString}${queryParamsString}`;
