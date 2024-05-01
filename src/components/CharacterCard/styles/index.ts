@@ -11,6 +11,7 @@ const CardContainer = styled.div`
   margin: 20px 20px 0px 0px;
   overflow: hidden;
   padding-bottom: 16px;
+  background-color: #ffffff;
 `;
 
 const CharacterImage = styled.img`
@@ -35,12 +36,13 @@ const CharacterDescription = styled.p`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   white-space: pre-wrap;
+  padding-right: 20px;
 `;
 
 const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: row-reverse;
-  padding-right: 16px;
+  padding-right: 20px;
 `;
 
 const CardBody = styled.div`
