@@ -1,8 +1,11 @@
+import { useState } from "react";
+import CharacterList from "../CharacterList";
 import SearchBar from "../SearchBar";
-// import CharacterList from "./CharacterList";
 import getCharacters from "./../../application/GetCharactersUseCase";
+import { CharacterDTO } from "../../application/characterDTOMapper";
 
 const CharacterSearch = () => {
+  const [characters, setCharacters] = useState<CharacterDTO[]>([]);
   const handleSearch = (term: string) => {
     getCharacter(term);
   };
@@ -13,13 +16,13 @@ const CharacterSearch = () => {
         name: term,
       },
     });
-    console.log(characters);
+    setCharacters(characters);
   };
 
   return (
     <div>
       <SearchBar onSearch={handleSearch} placeholder="Name of character" />
-      {/* <CharacterList searchTerm={searchTerm} /> */}
+      <CharacterList characters={characters} />
     </div>
   );
 };
