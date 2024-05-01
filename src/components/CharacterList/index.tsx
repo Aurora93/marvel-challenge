@@ -6,7 +6,7 @@ const CharacterList = ({ characters }: { characters: CharacterDTO[] }) => {
   return (
     <SearchResults>
       {characters.map((character) => (
-        <CharacterCard character={character} />
+        <CharacterCard key={character.characterId} character={character} />
       ))}
     </SearchResults>
   );
