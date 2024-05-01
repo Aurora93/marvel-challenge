@@ -1,42 +1,53 @@
 import styled from "styled-components";
 
 const CardContainer = styled.div`
-  width: 300px;
-  height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 325px;
+  height: 500px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  margin: 10px 10px 0px 0px;
+  margin: 20px 20px 0px 0px;
   overflow: hidden;
+  padding-bottom: 16px;
 `;
 
 const CharacterImage = styled.img`
-  width: 300px;
-  height: 400px;
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
   border-radius: 3px 3px 0 0;
 `;
 
 const CharacterName = styled.h2`
   font-size: 1.5rem;
-  margin-top: 12px;
-  margin-left: 16px;
+  margin-top: 0;
 `;
 
 const CharacterDescription = styled.p`
   font-size: 1rem;
   margin-top: 8px;
-  padding: 0 16px 0 16px;
+
   height: 70px;
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3; /* start showing ellipsis when 3rd line is reached */
+  -webkit-line-clamp: 3;
   white-space: pre-wrap;
 `;
 
 const ButtonWrapper = styled.div`
-  padding: 0 16px 16px 0;
   display: flex;
   flex-direction: row-reverse;
+  padding-right: 16px;
+`;
+
+const CardBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
+  justify-content: space-around;
 `;
 
 const ReadMoreButton = styled.button`
@@ -44,7 +55,7 @@ const ReadMoreButton = styled.button`
   align-items: center;
   justify-content: space-around;
   width: 150px;
-  margin-top: 16px;
+
   height: 50px;
   background-color: #444444;
   color: #fff;
@@ -70,4 +81,5 @@ export {
   CharacterDescription,
   ReadMoreButton,
   ButtonWrapper,
+  CardBody,
 };

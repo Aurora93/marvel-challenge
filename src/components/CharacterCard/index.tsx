@@ -6,6 +6,7 @@ import {
   CharacterDescription,
   ReadMoreButton,
   ButtonWrapper,
+  CardBody,
 } from "./styles";
 import { CharacterCardProps } from "./types";
 import RightArrowIcon from "../../assets/icons/rightArrowIcon.svg?react";
@@ -17,8 +18,10 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
         src={`${character.image.path}.${character.image.extension}`}
         alt={character.name}
       />
-      <CharacterName>{character.name}</CharacterName>
-      <CharacterDescription>{character.description}</CharacterDescription>
+      <CardBody>
+        <CharacterName>{character.name}</CharacterName>
+        <CharacterDescription>{character.description}</CharacterDescription>
+      </CardBody>
       <ButtonWrapper>
         <ReadMoreButton>
           Read more
