@@ -1,7 +1,24 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+/// <reference types="vitest" />
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
+import svgr from "vite-plugin-svgr";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  build: {
+    outDir: "build",
+    target: "esnext",
+  },
+  server: {
+    port: 3000,
+  },
+  plugins: [svgr(), react()],
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./src/setupTests.ts",
+    coverage: {
+      reporter: ["text", "html", "lcov"],
+      exclude: ["node_modules/", "src/setupTests.ts"],
+    },
+  },
+});
