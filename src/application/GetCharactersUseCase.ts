@@ -1,6 +1,7 @@
 import ICharacterRepository from "../domain/ICharacterRepository";
 import { SearchFilters } from "../domain/SearchFilters";
 import characterRepository from "../infrastructure/repositories/CharacterRepository";
+import { CharacterDTO } from "./characterDTOMapper";
 
 class GetCharactersUseCase {
   private _repository: ICharacterRepository;
@@ -9,8 +10,11 @@ class GetCharactersUseCase {
     this._repository = repository;
   }
 
-  execute({ queryParams }: { queryParams: SearchFilters }): Promise<any> {
-    // TODO type any
+  execute({
+    queryParams,
+  }: {
+    queryParams: SearchFilters;
+  }): Promise<CharacterDTO[]> {
     return this._repository.getCharacters({ queryParams });
   }
 }

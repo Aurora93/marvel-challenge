@@ -45,7 +45,7 @@ class CharacterRepository
 
     return this._api
       .get(url)
-      .then((res) => res.data.results && characterDTOMapper(res.data.results));
+      .then((res) => characterDTOMapper(res.data.results));
   }
 }
 
