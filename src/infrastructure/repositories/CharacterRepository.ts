@@ -37,7 +37,7 @@ class CharacterRepository
     return this._api.get(url).then((res) => res.data.results[0]); // TODO MAppper
   }
 
-  getCharacters({ queryParams }: { queryParams: SearchFilters }) {
+  getCharacters({ queryParams }: { queryParams?: SearchFilters }) {
     const queryParamsString = this._createQueryParams({
       ...queryParams,
       limit: 6,

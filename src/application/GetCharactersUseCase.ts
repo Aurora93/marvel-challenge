@@ -13,7 +13,7 @@ class GetCharactersUseCase {
   execute({
     queryParams,
   }: {
-    queryParams: SearchFilters;
+    queryParams?: SearchFilters;
   }): Promise<CharacterDTO[]> {
     return this._repository.getCharacters({ queryParams });
   }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CharacterList from "../CharacterList";
 import SearchBar from "../SearchBar";
 import getCharacters from "./../../application/GetCharactersUseCase";
@@ -7,27 +7,23 @@ import { TextWrapper } from "./styles";
 
 const CharacterSearch = () => {
   const [characters, setCharacters] = useState<CharacterDTO[] | null>(null);
+
+  useEffect(() => {
+    getCharacterHandler();
+  }, []);
+
   const handleSearch = (term: string) => {
-    getCharacter(term);
+    getCharacterHandler(term);
   };
 
-  const getCharacter = async (term: string) => {
-    if (term.length === 1) {
-      // TODO refactor
-      const characters = await getCharacters.execute({
-        queryParams: {
-          nameStartsWith: term,
-        },
-      });
-      setCharacters(characters);
-      return;
-    }
+  const getCharacterHandler = async (term?: string) => {
+    const queryParams = term // TODO refactor and test
+      ? term.length === 1
+        ? { nameStartsWith: term }
+        : { name: term }
+      : {};
 
-    const characters = await getCharacters.execute({
-      queryParams: {
-        name: term,
-      },
-    });
+    const characters = await getCharacters.execute({ queryParams });
     setCharacters(characters);
   };
 
