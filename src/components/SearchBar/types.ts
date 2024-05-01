@@ -1,4 +1,4 @@
 export type SearchBarPops = {
   placeholder: string;
-  onSearch: any; //TODO any
+  onSearch: (searchTerm: string) => void;
 };
