@@ -12,6 +12,11 @@ import { CharacterCardProps } from "./types";
 import RightArrowIcon from "../../assets/icons/rightArrowIcon.svg?react";
 
 const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
+  const handleRedirect = () => {
+    const newWindow = window.open(character.detailUrl, "_blank");
+    if (newWindow) newWindow.focus();
+  };
+
   return (
     <CardContainer>
       <CharacterImage
@@ -23,7 +28,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
         <CharacterDescription>{character.description}</CharacterDescription>
       </CardBody>
       <ButtonWrapper>
-        <ReadMoreButton>
+        <ReadMoreButton onClick={handleRedirect}>
           Read more
           <RightArrowIcon />
         </ReadMoreButton>

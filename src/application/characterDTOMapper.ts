@@ -3,6 +3,7 @@ export interface CharacterDTO {
   name: string;
   description: string;
   image: { path: string; extension: string };
+  detailUrl: string;
 }
 interface Thumbnail {
   path: string;
@@ -69,6 +70,11 @@ interface CharacterFromApi {
   urls: Url[];
 }
 
+const getUrl = (urls: Url[]): string => {
+  // TODO mover a otro fichero y añadir tests
+  return urls.find((url) => url.type === "comiclink")?.url || "";
+};
+
 export const characterDTOMapper = (
   data: CharacterFromApi[]
 ): CharacterDTO[] => {
@@ -78,6 +84,7 @@ export const characterDTOMapper = (
       name: character.name,
       description: character.description,
       image: character.thumbnail,
+      detailUrl: getUrl(character.urls),
     };
   });
 };
