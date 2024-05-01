@@ -11,6 +11,17 @@ const CharacterSearch = () => {
   };
 
   const getCharacter = async (term: string) => {
+    if (term.length === 1) {
+      // TODO refactor
+      const characters = await getCharacters.execute({
+        queryParams: {
+          nameStartsWith: term,
+        },
+      });
+      setCharacters(characters);
+      return;
+    }
+
     const characters = await getCharacters.execute({
       queryParams: {
         name: term,

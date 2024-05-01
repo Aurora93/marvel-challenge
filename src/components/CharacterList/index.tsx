@@ -1,21 +1,14 @@
 import { CharacterDTO } from "../../application/characterDTOMapper";
+import CharacterCard from "../CharacterCard";
+import { SearchResults } from "./styles";
 
 const CharacterList = ({ characters }: { characters: CharacterDTO[] }) => {
   return (
-    <div>
-      <ul>
-        {characters.map((character) => (
-          <li key={character.characterId}>
-            <img
-              src={`${character.image.path}.${character.image.extension}`}
-              alt={character.name}
-            />
-            <h3>{character.name}</h3>
-            <p>{character.description}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <SearchResults>
+      {characters.map((character) => (
+        <CharacterCard character={character} />
+      ))}
+    </SearchResults>
   );
 };
 
