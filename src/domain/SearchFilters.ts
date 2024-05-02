@@ -1,5 +1,8 @@
 export interface SearchFilters {
-  heroId?: string;
+  term?: string;
+}
+
+export interface FormatedSearchFilters {
   name?: string;
   nameStartsWith?: string;
 }

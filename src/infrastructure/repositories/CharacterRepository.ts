@@ -3,7 +3,7 @@ import Api from "../../domain/Api";
 import restApi from "../RestApi";
 import ICharacterRepository from "../../domain/ICharacterRepository";
 import BaseRepository from "./BaseRepository";
-import { SearchFilters } from "../../domain/SearchFilters";
+import { FormatedSearchFilters } from "../../domain/SearchFilters";
 import { characterDTOMapper } from "../../application/characterDTOMapper";
 
 class CharacterRepository
@@ -37,7 +37,7 @@ class CharacterRepository
     return this._api.get(url).then((res) => res.data.results[0]); // TODO MAppper
   }
 
-  getCharacters({ queryParams }: { queryParams?: SearchFilters }) {
+  getCharacters({ queryParams }: { queryParams?: FormatedSearchFilters }) {
     const queryParamsString = this._createQueryParams({
       ...queryParams,
       limit: 6,

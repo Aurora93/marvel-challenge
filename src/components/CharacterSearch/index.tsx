@@ -22,11 +22,7 @@ const CharacterSearch = () => {
   const getCharacterHandler = async (term?: string) => {
     setLoading(true);
 
-    const queryParams = term
-      ? term.length === 1
-        ? { nameStartsWith: term }
-        : { name: term }
-      : {};
+    const queryParams = { term };
 
     try {
       const characters = await getCharacters.execute({ queryParams });

@@ -1,6 +1,7 @@
 import ICharacterRepository from "../domain/ICharacterRepository";
 import { SearchFilters } from "../domain/SearchFilters";
 import characterRepository from "../infrastructure/repositories/CharacterRepository";
+import { searchQueryParamsFormater } from "../utils/searchQueryParamsFormater";
 import { CharacterDTO } from "./characterDTOMapper";
 
 class GetCharactersUseCase {
@@ -15,7 +16,8 @@ class GetCharactersUseCase {
   }: {
     queryParams?: SearchFilters;
   }): Promise<CharacterDTO[]> {
-    return this._repository.getCharacters({ queryParams });
+    const formatedParams = searchQueryParamsFormater(queryParams?.term);
+    return this._repository.getCharacters({ queryParams: formatedParams });
   }
 }
 
