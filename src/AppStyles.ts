@@ -13,7 +13,7 @@ const AppContainer = styled.div`
 const AppHeader = styled.header`
   background-color: #333;
   color: #fff;
-  padding: 10px;
+  padding: 10px 10px 10px 20px;
   margin-bottom: 20px;
 `;
 
@@ -25,7 +25,7 @@ const AppMain = styled.main`
 const AppFooter = styled.footer`
   background-color: #333;
   color: #fff;
-  padding: 10px;
+  padding: 10px 10px 10px 20px;
 
   p {
     font-size: 0.8em;

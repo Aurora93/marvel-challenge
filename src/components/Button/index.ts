@@ -18,7 +18,7 @@ export const Button = styled.button<{
     props.primary &&
     `
     background-color: #444444;
-    color: #fffff;
+    color: #ffffff;
     border: none;
     &:hover {
       background-color: #333333;
@@ -33,14 +33,14 @@ export const Button = styled.button<{
   ${(props) =>
     props.secondary &&
     `
-    background-color: #fffff;
+    background-color: #ffffff;
     color: #444444;
     border: 2px solid #444444;
     &:hover {
-      background-color: #888888;
+      background-color: #F4F4F4;
     }
     & svg {
-      fill: #444444;
+      fill: #fffff;
       width: 16px;
       height: 16px;
     }
