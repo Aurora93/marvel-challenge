@@ -1,17 +1,16 @@
-import React from "react";
 import {
   CardContainer,
   CharacterImage,
   CharacterName,
   CharacterDescription,
-  ReadMoreButton,
   ButtonWrapper,
   CardBody,
 } from "./styles";
 import { CharacterCardProps } from "./types";
 import RightArrowIcon from "../../assets/icons/rightArrowIcon.svg?react";
+import { Button } from "../Button";
 
-const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
+const CharacterCard = ({ character }: CharacterCardProps) => {
   const handleRedirect = () => {
     const newWindow = window.open(character.detailUrl, "_blank");
     if (newWindow) newWindow.focus();
@@ -28,10 +27,10 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
         <CharacterDescription>{character.description}</CharacterDescription>
       </CardBody>
       <ButtonWrapper>
-        <ReadMoreButton onClick={handleRedirect}>
+        <Button primary onClick={handleRedirect}>
           Read more
           <RightArrowIcon />
-        </ReadMoreButton>
+        </Button>
       </ButtonWrapper>
     </CardContainer>
   );

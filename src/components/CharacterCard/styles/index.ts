@@ -52,36 +52,11 @@ const CardBody = styled.div`
   justify-content: space-around;
 `;
 
-const ReadMoreButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 150px;
-
-  height: 50px;
-  background-color: #444444;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  padding: 8px 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  &:hover {
-    background-color: #333333;
-  }
-  & svg {
-    fill: #ffffff;
-    width: 16px;
-    height: 16px;
-  }
-`;
-
 export {
   CardContainer,
   CharacterImage,
   CharacterName,
   CharacterDescription,
-  ReadMoreButton,
   ButtonWrapper,
   CardBody,
 };

@@ -34,6 +34,10 @@ const CharacterSearch = () => {
     }
   };
 
+  const handleLoadMore = () => {
+    console.log("hola");
+  };
+
   return (
     <div>
       <SearchBar onSearch={handleSearch} placeholder="Name of character" />
@@ -42,7 +46,7 @@ const CharacterSearch = () => {
           <SpinnerLoadIcon />
         </SpinnerWrapper>
       ) : characters && characters.length > 0 ? (
-        <CharacterList characters={characters} />
+        <CharacterList characters={characters} loadMore={handleLoadMore} />
       ) : (
         <TextWrapper>No search results</TextWrapper>
       )}
