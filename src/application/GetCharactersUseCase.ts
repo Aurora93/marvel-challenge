@@ -14,9 +14,9 @@ class GetCharactersUseCase {
   execute({
     queryParams,
   }: {
-    queryParams?: SearchFilters;
+    queryParams: SearchFilters;
   }): Promise<CharacterDTO[]> {
-    const formatedParams = searchQueryParamsFormater(queryParams?.term);
+    const formatedParams = searchQueryParamsFormater(queryParams);
     return this._repository.getCharacters({ queryParams: formatedParams });
   }
 }

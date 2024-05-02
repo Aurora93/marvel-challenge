@@ -40,7 +40,6 @@ class CharacterRepository
   getCharacters({ queryParams }: { queryParams?: FormatedSearchFilters }) {
     const queryParamsString = this._createQueryParams({
       ...queryParams,
-      limit: 6,
     });
     const authParamsString = this._createAuthParams();
 

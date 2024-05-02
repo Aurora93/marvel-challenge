@@ -6,9 +6,13 @@ import { CharacterDTO } from "../../application/characterDTOMapper";
 import { TextWrapper, SpinnerWrapper } from "./styles";
 import SpinnerLoadIcon from "../../assets/icons/spinnerLoadIcon.svg?react";
 
+const ADDED_NUMBER = 6;
+
 const CharacterSearch = () => {
   const [loading, setLoading] = useState(true);
   const [characters, setCharacters] = useState<CharacterDTO[] | null>(null);
+  const [term, setTerm] = useState<string | undefined>(undefined);
+  const [numberOfResults, setNumberOfResults] = useState(6);
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -19,10 +23,14 @@ const CharacterSearch = () => {
     getCharacterHandler(term);
   };
 
-  const getCharacterHandler = async (term?: string) => {
+  const getCharacterHandler = async (
+    term?: string,
+    numberOfResults?: number
+  ) => {
     setLoading(true);
+    setTerm(term);
 
-    const queryParams = { term };
+    const queryParams = { term, numberOfResults };
 
     try {
       const characters = await getCharacters.execute({ queryParams });
@@ -35,7 +43,8 @@ const CharacterSearch = () => {
   };
 
   const handleLoadMore = () => {
-    console.log("hola");
+    setNumberOfResults(numberOfResults + ADDED_NUMBER);
+    getCharacterHandler(term, numberOfResults + ADDED_NUMBER);
   };
 
   return (
@@ -50,7 +59,7 @@ const CharacterSearch = () => {
       ) : (
         <TextWrapper>No search results</TextWrapper>
       )}
-      {error && <TextWrapper>Something went wrong</TextWrapper>}
+      {error && !characters && <TextWrapper>Something went wrong</TextWrapper>}
     </div>
   );
 };
