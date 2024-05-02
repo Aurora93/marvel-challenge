@@ -26,4 +26,11 @@ const SpinnerWrapper = styled.div`
   }
 `;
 
-export { TextWrapper, SpinnerWrapper };
+const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 20px;
+`;
+
+export { TextWrapper, SpinnerWrapper, ButtonWrapper };

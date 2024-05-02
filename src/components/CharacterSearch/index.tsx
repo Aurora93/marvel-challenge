@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import CharacterList from "../CharacterList";
 import SearchBar from "../SearchBar";
+import Button from "../Button";
+import SpinnerLoadIcon from "../../assets/icons/spinnerLoadIcon.svg?react";
+import RightArrowIcon from "../../assets/icons/rightArrowIcon.svg?react";
 import getCharacters from "./../../application/GetCharactersUseCase";
 import { CharacterDTO } from "../../application/characterDTOMapper";
-import { TextWrapper, SpinnerWrapper } from "./styles";
-import SpinnerLoadIcon from "../../assets/icons/spinnerLoadIcon.svg?react";
+import { TextWrapper, SpinnerWrapper, ButtonWrapper } from "./styles";
 
 const ADDED_NUMBER = 6;
 
@@ -55,10 +57,19 @@ const CharacterSearch = () => {
           <SpinnerLoadIcon />
         </SpinnerWrapper>
       ) : characters && characters.length > 0 ? (
-        <CharacterList characters={characters} loadMore={handleLoadMore} />
+        <>
+          <CharacterList characters={characters} />
+          <ButtonWrapper>
+            <Button secondary onClick={handleLoadMore}>
+              Load more
+              <RightArrowIcon />
+            </Button>
+          </ButtonWrapper>
+        </>
       ) : (
         <TextWrapper>No search results</TextWrapper>
       )}
+
       {error && !characters && <TextWrapper>Something went wrong</TextWrapper>}
     </div>
   );

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Button = styled.button<{
+const Button = styled.button<{
   primary?: boolean;
   secondary?: boolean;
 }>`
@@ -46,3 +46,5 @@ export const Button = styled.button<{
     }
   `}
 `;
+
+export default Button;
