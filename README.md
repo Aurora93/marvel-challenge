@@ -47,6 +47,21 @@ npm run cypress
 ```
 This will open Cypress in the Chrome browser.
 
+## Use Cases
+
+The Marvel Character Search application provides users with the ability to explore Marvel characters and comics. Here are the main use cases of the application:
+
+1. **Search by Specific Name:** Users can search for characters by entering a specific name in the search bar. The application will display characters whose names match the search query.
+
+2. **Search by Initial Letter:** Users can search for characters by entering a single letter in the search bar. The application will display characters whose names start with the entered letter.
+
+3. **Load More Characters:** Users can load more characters by clicking the "Load more" button. This action will fetch an additional 6 characters, expanding the search results.
+
+4. **View Character Comics:** Users can explore the comics associated with a character by clicking the "Read more" button on the character card. This action will open a new tab with the comics page for that character.
+
+The application initially displays 6 characters upon entry, as per the specified design. However, this number can be adjusted as needed.
+
+
 ## Screenshots
 
 ### Mobile
