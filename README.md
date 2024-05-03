@@ -1,30 +1,43 @@
-# React + TypeScript + Vite
+# Marvel Character Search Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a character search application for the Marvel universe, utilizing the public Marvel API. You can find more information about the Marvel API [here](https://developer.marvel.com/).
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is built using [Vite](https://vitejs.dev/), [React](https://reactjs.org/), and [TypeScript](https://www.typescriptlang.org/). 
+Vite was chosen for its fast development server and build times compared to webpack. Additionally, TypeScript was chosen for its type safety and enhanced development experience.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+To initialize the project, follow these steps:
 
-- Configure the top-level `parserOptions` property like this:
+1. Install dependencies:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```sh
+ npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+2. Start the development server:
+```sh
+npm run start
+```
+This will start the server at port 3000.
+
+### Running Unit Tests
+To run the unit tests, use the following command:
+
+```sh
+npm run test
+```
+
+### Running Cypress Tests
+This project includes [Cypress](https://www.cypress.io/) tests to cover certain scenarios, such as searching for characters, and ensures thorough testing of all application use cases. To run Cypress tests, use the following command:
+
+```sh
+npm run cypress
+```
+This will open Cypress in the Chrome browser.
+
+## Acknowledgments
+Special thanks to Stayforlong for providing the opportunity to work on this technical test.
