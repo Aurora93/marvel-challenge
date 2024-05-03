@@ -6,7 +6,7 @@ export const searchQueryParamsFormater = ({
 }: SearchFilters) => {
   return term
     ? term.length === 1
-      ? { nameStartsWith: term, limit: numberOfResults }
-      : { name: term, limit: numberOfResults }
+      ? { nameStartsWith: term.trim(), limit: numberOfResults }
+      : { name: term.trim(), limit: numberOfResults }
     : { limit: numberOfResults };
 };

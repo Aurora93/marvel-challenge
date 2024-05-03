@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mediaQueries } from "./infrastructure/theme/mediaQueries";
 
 const AppContainer = styled.div`
   font-family: Arial, sans-serif;
@@ -15,11 +16,19 @@ const AppHeader = styled.header`
   color: #fff;
   padding: 10px 10px 10px 20px;
   margin-bottom: 20px;
+
+  @media screen and (max-width: ${mediaQueries.TABLET}px) {
+    padding-left: 40px;
+  }
 `;
 
 const AppMain = styled.main`
   padding: 20px;
   background-color: #e5e5e5;
+
+  @media screen and (max-width: ${mediaQueries.TABLET}px) {
+    padding-left: 40px;
+  }
 `;
 
 const AppFooter = styled.footer`
@@ -29,6 +38,10 @@ const AppFooter = styled.footer`
 
   p {
     font-size: 0.8em;
+  }
+
+  @media screen and (max-width: ${mediaQueries.TABLET}px) {
+    padding-left: 40px;
   }
 `;
 

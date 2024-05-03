@@ -31,7 +31,6 @@ const CharacterSearch = () => {
   ) => {
     setLoading(true);
     setTerm(term);
-    console.log("hola");
 
     const queryParams = { term, numberOfResults };
 
