@@ -62,6 +62,7 @@ The Marvel Character Search application provides users with the ability to explo
 The application initially displays 6 characters upon entry, as per the specified design. However, this number can be adjusted as needed.
 
 
+
 ## Screenshots
 
 ### Mobile
