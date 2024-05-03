@@ -24,11 +24,17 @@ const CharacterCard = ({ character }: CharacterCardProps) => {
         data-testid="character-image"
       />
       <CardBody>
-        <CharacterName>{character.name}</CharacterName>
+        <CharacterName data-testid="character-name">
+          {character.name}
+        </CharacterName>
         <CharacterDescription>{character.description}</CharacterDescription>
       </CardBody>
       <ButtonWrapper>
-        <Button primary onClick={handleRedirect}>
+        <Button
+          variable="primary"
+          onClick={handleRedirect}
+          data-testid="readmore-button"
+        >
           Read more
           <RightArrowIcon />
         </Button>

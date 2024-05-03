@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 const Button = styled.button<{
-  primary?: boolean;
-  secondary?: boolean;
+  variable?: "primary" | "secondary";
 }>`
   display: flex;
   align-items: center;
@@ -15,7 +14,7 @@ const Button = styled.button<{
   transition: background-color 0.3s;
 
   ${(props) =>
-    props.primary &&
+    props.variable === "primary" &&
     `
     background-color: #444444;
     color: #ffffff;
@@ -31,7 +30,7 @@ const Button = styled.button<{
   `}
 
   ${(props) =>
-    props.secondary &&
+    props.variable === "secondary" &&
     `
     background-color: #ffffff;
     color: #444444;

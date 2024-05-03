@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CharacterList from "../CharacterList";
 import SearchBar from "../SearchBar";
 import Button from "../Button";
@@ -7,6 +7,7 @@ import RightArrowIcon from "../../assets/icons/rightArrowIcon.svg?react";
 import getCharacters from "./../../application/GetCharactersUseCase";
 import { CharacterDTO } from "../../application/characterDTOMapper";
 import { TextWrapper, SpinnerWrapper, ButtonWrapper } from "./styles";
+import { useEffectOnce } from "../../utils/useEffectOnce";
 
 const ADDED_NUMBER = 6;
 
@@ -17,10 +18,9 @@ const CharacterSearch = () => {
   const [numberOfResults, setNumberOfResults] = useState(6);
   const [error, setError] = useState(false);
 
-  useEffect(() => {
+  useEffectOnce(() => {
     getCharacterHandler();
-  }, []);
-
+  });
   const handleSearch = (term: string) => {
     getCharacterHandler(term);
   };
@@ -31,12 +31,12 @@ const CharacterSearch = () => {
   ) => {
     setLoading(true);
     setTerm(term);
+    console.log("hola");
 
     const queryParams = { term, numberOfResults };
 
     try {
       const characters = await getCharacters.execute({ queryParams });
-      console.log({ characters });
       setCharacters(characters);
     } catch (error) {
       setError(true);
@@ -51,7 +51,7 @@ const CharacterSearch = () => {
   };
 
   return (
-    <div>
+    <>
       <SearchBar onSearch={handleSearch} placeholder="Name of character" />
       {loading ? (
         <SpinnerWrapper data-testid="spinner-wrapper">
@@ -61,18 +61,26 @@ const CharacterSearch = () => {
         <>
           <CharacterList data-testid="character-list" characters={characters} />
           <ButtonWrapper>
-            <Button secondary onClick={handleLoadMore}>
+            <Button
+              variable="secondary"
+              onClick={handleLoadMore}
+              data-testid="loadmore-button"
+            >
               Load more
               <RightArrowIcon />
             </Button>
           </ButtonWrapper>
         </>
+      ) : error ? (
+        <TextWrapper data-testid="error-message">
+          Something went wrong
+        </TextWrapper>
       ) : (
-        <TextWrapper>No search results</TextWrapper>
+        <TextWrapper data-testid="no-results-message">
+          No search results
+        </TextWrapper>
       )}
-
-      {error && !characters && <TextWrapper>Something went wrong</TextWrapper>}
-    </div>
+    </>
   );
 };
 

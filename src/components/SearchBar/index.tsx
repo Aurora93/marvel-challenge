@@ -1,10 +1,10 @@
-import React from "react";
+import { useState } from "react";
 import SearchIcon from "../../assets/icons/searchIcon.svg?react";
 import { SearchContainer, SearchInput, SearchButton } from "./styles";
 import { SearchBarPops } from "./types";
 
 const SearchBar = ({ placeholder, onSearch }: SearchBarPops) => {
-  const [searchTerm, setSearchTerm] = React.useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleInputChange = (event: any) => {
     setSearchTerm(event.target.value);
@@ -21,8 +21,9 @@ const SearchBar = ({ placeholder, onSearch }: SearchBarPops) => {
         placeholder={placeholder}
         value={searchTerm}
         onChange={handleInputChange}
+        data-testid="search-input"
       />
-      <SearchButton onClick={handleSearch}>
+      <SearchButton onClick={handleSearch} data-testid="search-button">
         <SearchIcon />
       </SearchButton>
     </SearchContainer>
