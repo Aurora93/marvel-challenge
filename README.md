@@ -47,5 +47,16 @@ npm run cypress
 ```
 This will open Cypress in the Chrome browser.
 
+## Screenshots
+
+### Mobile
+![Home Page](src/assets/screenshots/mobile.png)
+
+### Tablet Results
+![Tablet Results](src/assets/screenshots/tablet.png)
+
+### Character Desktop
+![Character Desktop](src/assets/screenshots/desktop.png)
+
 ## Acknowledgments
-Special thanks to Stayforlong for providing the opportunity to work on this technical test.
+Special thanks to Stayforlong for providing the opportunity to work on this technical test!
