@@ -76,7 +76,7 @@ const getUrl = (urls: Url[]): string => {
 };
 
 export const characterDTOMapper = (
-  data: CharacterFromApi[]
+  data: CharacterFromApi[] | any
 ): CharacterDTO[] => {
   return data.map((character: CharacterFromApi) => {
     return {
