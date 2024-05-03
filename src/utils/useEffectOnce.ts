@@ -23,7 +23,6 @@ export const useEffectOnce = (effect: () => void | (() => void)) => {
 
     return () => {
       // if the comp didn't render since the useEffect was called,
-      // we know it's the dummy React cycle
       if (!renderAfterCalled.current) {
         return;
       }
