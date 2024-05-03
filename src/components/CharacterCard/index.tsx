@@ -17,10 +17,11 @@ const CharacterCard = ({ character }: CharacterCardProps) => {
   };
 
   return (
-    <CardContainer>
+    <CardContainer data-testid="character-card">
       <CharacterImage
         src={`${character.image.path}.${character.image.extension}`}
         alt={character.name}
+        data-testid="character-image"
       />
       <CardBody>
         <CharacterName>{character.name}</CharacterName>

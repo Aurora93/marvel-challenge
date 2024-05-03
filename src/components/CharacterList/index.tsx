@@ -4,7 +4,7 @@ import { CharacterListProps } from "./types";
 
 const CharacterList = ({ characters }: CharacterListProps) => {
   return (
-    <SearchResults>
+    <SearchResults data-testid="search-results">
       {characters.map((character) => (
         <CharacterCard key={character.characterId} character={character} />
       ))}

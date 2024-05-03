@@ -1,4 +1,4 @@
-import { expectTypeOf, vi } from "vitest";
+import { beforeEach, describe, expect, expectTypeOf, it, vi } from "vitest";
 import ICharacterRepository from "../domain/ICharacterRepository";
 import { characterRepositoryMockFactory } from "../test/mocks/characterRepositoryMockFactory";
 import { GetCharactersUseCase } from "./GetCharactersUseCase";

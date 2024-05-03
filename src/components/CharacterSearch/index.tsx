@@ -36,6 +36,7 @@ const CharacterSearch = () => {
 
     try {
       const characters = await getCharacters.execute({ queryParams });
+      console.log({ characters });
       setCharacters(characters);
     } catch (error) {
       setError(true);
@@ -53,12 +54,12 @@ const CharacterSearch = () => {
     <div>
       <SearchBar onSearch={handleSearch} placeholder="Name of character" />
       {loading ? (
-        <SpinnerWrapper>
+        <SpinnerWrapper data-testid="spinner-wrapper">
           <SpinnerLoadIcon />
         </SpinnerWrapper>
       ) : characters && characters.length > 0 ? (
         <>
-          <CharacterList characters={characters} />
+          <CharacterList data-testid="character-list" characters={characters} />
           <ButtonWrapper>
             <Button secondary onClick={handleLoadMore}>
               Load more
