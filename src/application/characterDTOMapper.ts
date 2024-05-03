@@ -1,3 +1,5 @@
+import { getUrl } from "../utils/getUrl";
+
 export interface CharacterDTO {
   characterId: number;
   name: string;
@@ -36,7 +38,7 @@ export interface Url {
   url: string;
 }
 
-interface CharacterFromApi {
+export interface CharacterDetail {
   id: number;
   name: string;
   description: string;
@@ -70,14 +72,10 @@ interface CharacterFromApi {
   urls: Url[];
 }
 
-const getUrl = (urls: Url[]): string => {
-  return urls.find((url) => url.type === "comiclink")?.url || "";
-};
-
 export const characterDTOMapper = (
-  data: CharacterFromApi[] | any
+  data: CharacterDetail[] | any
 ): CharacterDTO[] => {
-  return data.map((character: CharacterFromApi) => {
+  return data.map((character: CharacterDetail) => {
     return {
       characterId: character.id,
       name: character.name,

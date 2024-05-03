@@ -30,11 +30,12 @@ class CharacterRepository
   }
 
   getCharacter({ characterId }: { characterId: string }) {
+    // this method is not used in the app but I left just in case
     const url = `${
       this._getCharacterEndpoint
     }/${characterId}${this._createAuthParams()}`;
 
-    return this._api.get(url).then((res) => res.data.results[0]); // TODO MAppper
+    return this._api.get(url).then((res) => res.data.results[0]);
   }
 
   getCharacters({ queryParams }: { queryParams?: FormatedSearchFilters }) {

@@ -1,8 +1,15 @@
-import { CharacterDTO } from "../application/characterDTOMapper";
+import {
+  CharacterDTO,
+  CharacterDetail,
+} from "../application/characterDTOMapper";
 import { FormatedSearchFilters } from "./SearchFilters";
 
 interface ICharacterRepository {
-  getCharacter({ characterId }: { characterId: string }): Promise<any>; // TODO any
+  getCharacter({
+    characterId,
+  }: {
+    characterId: string;
+  }): Promise<CharacterDetail>;
   getCharacters({
     queryParams,
   }: {

@@ -1,6 +1,6 @@
+import { describe, it, expect, vi } from "vitest";
 import Api from "../../domain/Api";
 import { CharacterRepository } from "./CharacterRepository";
-import { vi } from "vitest";
 import { createMockedApi } from "../../test/mocks/createMockedApi";
 import { createMockedApiReject } from "../../test/mocks/createMockedApiReject";
 import { charactersFromApi } from "../../test/fixtures/characters";
@@ -32,7 +32,7 @@ describe("CharacterRepository", () => {
       getCharactersEndpoint: testApiGetCharacter,
     });
 
-  describe("get entry details method", () => {
+  describe("get character details method", () => {
     it("should fetch with correct url and headers and return correct type data", () => {
       const mockedApi = createMockedApi("get", {
         data: { results: charactersFromApi },
@@ -59,6 +59,7 @@ describe("CharacterRepository", () => {
         });
       CharacterRepository.prototype._createAuthParams = originalGenerateHash;
     });
+
     it("should return error if fetch returns error", () => {
       const mockedApi = createMockedApiReject("get", errorMessage);
       const repository = createRepository(mockedApi);

@@ -1,6 +1,6 @@
 import ICharacterRepository from "../domain/ICharacterRepository";
 import characterRepository from "../infrastructure/repositories/CharacterRepository";
-import { CharacterDTO } from "./characterDTOMapper";
+import { CharacterDetail } from "./characterDTOMapper";
 
 class GetCharacterUseCase {
   private _repository: ICharacterRepository;
@@ -9,7 +9,7 @@ class GetCharacterUseCase {
     this._repository = repository;
   }
 
-  execute({ characterId }: { characterId: string }): Promise<CharacterDTO[]> {
+  execute({ characterId }: { characterId: string }): Promise<CharacterDetail> {
     return this._repository.getCharacter({ characterId });
   }
 }

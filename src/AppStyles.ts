@@ -17,7 +17,7 @@ const AppHeader = styled.header`
   padding: 10px 10px 10px 20px;
   margin-bottom: 20px;
 
-  @media screen and (max-width: ${mediaQueries.TABLET}px) {
+  @media screen and (max-width: ${mediaQueries.DESKTOP}px) {
     padding-left: 40px;
   }
 `;
@@ -26,7 +26,7 @@ const AppMain = styled.main`
   padding: 20px;
   background-color: #e5e5e5;
 
-  @media screen and (max-width: ${mediaQueries.TABLET}px) {
+  @media screen and (max-width: ${mediaQueries.DESKTOP}px) {
     padding-left: 40px;
   }
 `;
@@ -40,7 +40,7 @@ const AppFooter = styled.footer`
     font-size: 0.8em;
   }
 
-  @media screen and (max-width: ${mediaQueries.TABLET}px) {
+  @media screen and (max-width: ${mediaQueries.DESKTOP}px) {
     padding-left: 40px;
   }
 `;
