@@ -489,7 +489,6 @@ export const formatedCharacters = [
       path: "http://i.annihil.us/u/prod/marvel/i/mg/6/20/52602f21f29ec",
       extension: "jpg",
     },
-    resourceURI: "http://gateway.marvel.com/v1/public/characters/1009144",
     detailUrl:
       "http://marvel.com/comics/characters/1009144/aim.?utm_campaign=apiRef&utm_source=ff17cffb2b811e80f15c2613539b4a62",
   },
