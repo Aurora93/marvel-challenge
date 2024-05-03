@@ -71,7 +71,6 @@ describe("BaseRepository", () => {
 
       const publicKey = "mockPublicKey";
       const privateKey = "mockPrivateKey";
-      //  const mockHash = "mockHash";
       const mockedTime = 1234567890;
       Date.prototype.getTime = vi.fn(() => mockedTime);
 
