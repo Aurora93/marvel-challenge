@@ -8,7 +8,7 @@ import {
 } from "./styles";
 import { CharacterCardProps } from "./types";
 import RightArrowIcon from "../../assets/icons/rightArrowIcon.svg?react";
-import { Button } from "../Button";
+import Button from "../Button";
 
 const CharacterCard = ({ character }: CharacterCardProps) => {
   const handleRedirect = () => {
