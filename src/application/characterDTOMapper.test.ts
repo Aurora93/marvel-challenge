@@ -6,7 +6,7 @@ import {
   wrongData,
 } from "../test/fixtures/characters";
 
-describe.skip("characterDTOMapper", () => {
+describe("characterDTOMapper", () => {
   it("should transform data correctly", () => {
     const entranceData = charactersFromApi;
 
