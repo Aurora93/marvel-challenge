@@ -31,7 +31,7 @@ interface Event {
   name: string;
 }
 
-interface Url {
+export interface Url {
   type: string;
   url: string;
 }
@@ -71,7 +71,6 @@ interface CharacterFromApi {
 }
 
 const getUrl = (urls: Url[]): string => {
-  // TODO mover a otro fichero y añadir tests
   return urls.find((url) => url.type === "comiclink")?.url || "";
 };
 
