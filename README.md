@@ -17,8 +17,16 @@ To initialize the project, follow these steps:
  npm install
 ```
 
+2. Create .env file
+Create a .env file in the root directory of the project and add the following environment variables:
+```sh
+VITE_API_BASE_URL=https://gateway.marvel.com/
+VITE_MARVEL_API_PUBLIC_KEY=ff17cffb2b811e80f15c2613539b4a62
+VITE_MARVEL_API_PRIVATE_KEY=b9b32515f281767d4e9c0a9a66c177ae0644135a
+```
 
-2. Start the development server:
+
+3. Start the development server:
 ```sh
 npm run start
 ```
